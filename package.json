@@ -1,0 +1,11 @@
+{
+  "name": "filtab",
+  "version": "1.0.0",
+  "description": "1) Начало - скачайте zip-папку filtab, найдите файл filtab.js и подключите его в ваш главный javascript файл; Пример: \timport './filtab.js';",
+  "main": "filtab.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexey Yakovlev <alexeyykovlev555@gmail.com>",
+  "license": "ISC"
+}
