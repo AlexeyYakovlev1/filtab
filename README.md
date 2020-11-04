@@ -14,7 +14,7 @@ After that, you will have access to methods:
 by which happens click. First param acceps to yourself hide content, by which should be data atribute: data-tab-filter, value which should be in class element, by which happens click.
 Example without picture:
 
-```sh
+```html
 	<li class="item title1">
 		title
 		<div class="content block-hidden" data-tab-fitler="title1">content</div>
@@ -28,13 +28,13 @@ Example without picture:
 		<div class="content block-hidden" data-tab-fitler="title3">content</div>
 	</li>
 ```
-```sh
+```css
 	.block-hidden {
 	  display: none;
 	}
 ```
 	     
-```sh
+```javascript
 	const item = document.querySelectorAll('.item');
 	const itemElements = [...item];
 	const content = document.querySelectorAll('.content');
@@ -45,7 +45,7 @@ Example without picture:
 Second param (which is an optional) takes to yourself picture, which lies next to the element, by which happens click, also in the picture should be data atribute: data-tab-img, value which also should be in class element, by which happens click. If you conveyed picture, then they must pass the fourth parameter - this is the css class that will interact with this picture.
 Example with picture:
 
-```sh
+```html
 	<li class="item title1">
 		title
 		<img class="img" src="./img/img.png" data-tab-img="title1" alt="img" />
@@ -63,7 +63,7 @@ Example with picture:
 	</li>
 ```
 
-```sh
+```css
 	.block-hidden {
 	  display: none;
 	}
@@ -77,7 +77,7 @@ Example with picture:
 	} 
 ```
 
-```sh
+```javascript
 	const item = document.querySelectorAll('.item');
 	const itemElements = [...item];
 	const content = document.querySelectorAll('.content');
@@ -90,7 +90,7 @@ Example with picture:
 all next closed.
 Example without picture:
 
-```sh
+```html
 	<li class="item title1">
 		title
 		<div class="content block-hidden" data-tab-filter="title1">content</div>
@@ -105,13 +105,13 @@ Example without picture:
 	</li>
 ```
 
-```sh
+```css
 	.block-hidden {
 	  display: none;
 	}
 ```	
 
-```sh
+```javascript
 	const item = document.querySelectorAll('.item');
 	const itemElements = [...item];
 	const content = document.querySelectorAll('.content');
@@ -123,7 +123,7 @@ Example without picture:
 opening the content changes the text and returns the initial text on closing. First param takes content, which need show/hide, second param takes in yourself initial header text, the third parameter is the text to which you want to change the initial, the fourth parameter is the css class that shows/hides the content.
 Example without picture:
 
-```sh
+```html
 	<li class="item">
         <span class="item-text title1"></span>
         <div class="content block-hidden" data-tab-filter="title1">content</div>
@@ -138,13 +138,13 @@ Example without picture:
     </li>
 ```
 
-```sh
+```css
 	.block-hidden {
 		display: none;
 	}
 ```
 
-```sh
+```javascript
 	const titles = document.querySelectorAll('.item-text');
 	const titlesElements = [...titles];
 	const content = document.querySelectorAll('.content');
@@ -160,7 +160,7 @@ Example without picture:
 one param- is css-class, which hide/show content. But content should be  after the title itself.
 Example without picture:
 
-```sh
+```html
 	<li class="item">
         <span class="item-text">title1</span>
         <div class="content block-hidden">content</div>
@@ -175,13 +175,13 @@ Example without picture:
     </li>
 ```
 
-```sh
+```css
 	.block-hidden {
     	display: none;
 	}
 ```
 
-```sh
+```javascript
 	const titles = document.querySelectorAll('.item-text');
 	const titlesElements = [...titles];
 
