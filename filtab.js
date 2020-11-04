@@ -1,4 +1,3 @@
-// show every content
 Array.prototype.showEvery = function (content_body, hidden_class, html_img, html_img_class) {
     if (html_img === void 0) {
         html_img = undefined;
@@ -31,7 +30,6 @@ Array.prototype.showEvery = function (content_body, hidden_class, html_img, html
         });
     });
 };
-// show only one content
 Array.prototype.showOne = function (content_body, hidden_class, html_img, html_img_class) {
     if (html_img === void 0) {
         html_img = undefined;
@@ -89,8 +87,6 @@ Array.prototype.showOne = function (content_body, hidden_class, html_img, html_i
         });
     });
 };
-
-// change text titles
 Array.prototype.changeText = function (content_body, first_text, second_text, hidden_class) {
     this.forEach(function(title) {
         title.addEventListener('click', function() {
@@ -107,8 +103,6 @@ Array.prototype.changeText = function (content_body, first_text, second_text, hi
         });
     });
 };
-
-// show next element
 Array.prototype.showNext = function (hidden_class) {
     this.forEach(function(title) {
         title.addEventListener('click', function(event) {
@@ -116,3 +110,8 @@ Array.prototype.showNext = function (hidden_class) {
         });
     });
 }
+
+module.exports.showEvery = showEvery;
+module.exports.showOne = showOne;
+module.exports.changeText = showEvery;
+module.exports.showNext = showNext;
