@@ -1,11 +1,21 @@
-1) Начало - скачайте zip-папку filtab, найдите файл filtab.js и подключите его в ваш главный javascript файл;
-Пример:
-	import './filtab.js';
-	
-2) После этого у вас будут доступны методы:
--showEvery - показывает/скрывает контент. Вызывать метод нужно в массиве елементов,
-по которым происходит клик. Первым параметром принимает в себя скрытый контент, в котором должен быть data атрибут: data-tab-filter, значение которого должно быть в классе елемента, по которому происходит клик.
-Пример без картинки: <li class="item title1">
+# Filtab.js
+Filtab - library for show/hide content on website.
+
+# Start
+You will must download zip-folder filtab, find file filtab.js and connected him in your main javascript file.
+
+Example:
+```sh
+import './filtab.js';
+```
+
+After that, you will have access to methods:
+*   showEvery - show/hide content. Call method need in array elements,
+by which happens click. First param acceps to yourself hide content, by which should be data atribute: data-tab-filter, value which should be in class element, by which happens click.
+Example without picture:
+
+```sh
+	<li class="item title1">
 		title
 		<div class="content block-hidden" data-tab-fitler="title1">content</div>
 	</li>
@@ -17,19 +27,26 @@
 		title
 		<div class="content block-hidden" data-tab-fitler="title3">content</div>
 	</li>
-
+```
+```sh
 	.block-hidden {
 	  display: none;
 	}
-	      
+```
+	     
+```sh
 	const item = document.querySelectorAll('.item');
 	const itemElements = [...item];
 	const content = document.querySelectorAll('.content');
 	      
 	itemElements.showEvery(content, 'block-hidden');
-	      
-Вторым параметром (который является необязательным) принимает в себя картинку, которая лежит рядом с елементом, по которому происходит клик, также в картинке должен быть data атрибут: data-tab-img, значение которого также должно быть в классе елемента, по которому происходит клик. Если вы передали картинку, то должны и передать четвертый параметр - это css-класс который будет с этой картинкой взаимодействовать.
-Пример с картинкой: <li class="item title1">
+```
+
+Second param (which is an optional) takes to yourself picture, which lies next to the element, by which happens click, also in the picture should be data atribute: data-tab-img, value which also should be in class element, by which happens click. If you conveyed picture, then they must pass the fourth parameter - this is the css class that will interact with this picture.
+Example with picture:
+
+```sh
+	<li class="item title1">
 		title
 		<img class="img" src="./img/img.png" data-tab-img="title1" alt="img" />
 		<div class="content block-hidden" data-tab-filter="title1">content</div>
@@ -44,7 +61,9 @@
 		<img class="img" src="./img/img.png" data-tab-img="title3" alt="img" />
 		<div class="content block-hidden" data-tab-filter="title3">content</div>
 	</li>
-	
+```
+
+```sh
 	.block-hidden {
 	  display: none;
 	}
@@ -56,16 +75,23 @@
 	.rotate-img {
 	  transform: rotate(360deg);
 	} 
-	
+```
+
+```sh
 	const item = document.querySelectorAll('.item');
 	const itemElements = [...item];
 	const content = document.querySelectorAll('.content');
 	const img = document.querySelectorAll('.img');
 	      
 	itemElements.showEvery(content, 'block-hidden', img, 'rotate-img');
+```
 
--showOne - работает также как и showEvery только при открытии контента все остальные закрываются.
-Пример без картинки: <li class="item title1">
+* showOne - work also how and showEvery only when opening content
+all next closed.
+Example without picture:
+
+```sh
+	<li class="item title1">
 		title
 		<div class="content block-hidden" data-tab-filter="title1">content</div>
 	</li>
@@ -77,22 +103,27 @@
 		title
 		<div class="content block-hidden" data-tab-filter="title3">content</div>
 	</li>
-	
+```
+
+```sh
 	.block-hidden {
 	  display: none;
 	}
-	
+```	
+
+```sh
 	const item = document.querySelectorAll('.item');
 	const itemElements = [...item];
 	const content = document.querySelectorAll('.content');
 	      
 	itemElements.showOne(content, 'block-hidden');
+```
 
--changeText - работает также как и showEvery только при открытии контента изменяет текст и при его закрытии возвращает начальный.
-Перым параметром принимает контент, который нужно показать/скрыть, вторым параметром принимает в себя начальный текст заголовка,
-третий параметр - это текст, на который нужно изменить начальный, четвертый параметр - это css-класс, который показывает/скрывает
-контент.
-Пример без картинки:
+* changeText - works the same as showEvery only when 
+opening the content changes the text and returns the initial text on closing. First param takes content, which need show/hide, second param takes in yourself initial header text, the third parameter is the text to which you want to change the initial, the fourth parameter is the css class that shows/hides the content.
+Example without picture:
+
+```sh
 	<li class="item">
         <span class="item-text title1"></span>
         <div class="content block-hidden" data-tab-filter="title1">content</div>
@@ -105,11 +136,15 @@
         <span class="item-text title3"></span>
         <div class="content block-hidden" data-tab-filter="title3">content</div>
     </li>
+```
 
+```sh
 	.block-hidden {
 		display: none;
 	}
+```
 
+```sh
 	const titles = document.querySelectorAll('.item-text');
 	const titlesElements = [...titles];
 	const content = document.querySelectorAll('.content');
@@ -119,10 +154,13 @@
 
 		titlesElements.changeText(content, 'first text', 'change text', 'block-hidden');  
 	})
+```
 
--showNext - работает также как и showEvery только принимает в себя один параметр - это css-класс, который скрывает/показывает контент.
-Но контент должен быть после самого заголовка.
-Пример без картинки:
+* showNext - works the same as showEvery only accepts in yourself
+one param- is css-class, which hide/show content. But content should be  after the title itself.
+Example without picture:
+
+```sh
 	<li class="item">
         <span class="item-text">title1</span>
         <div class="content block-hidden">content</div>
@@ -135,12 +173,17 @@
         <span class="item-text">title3</span> 
         <div class="content block-hidden">content</div>
     </li>
+```
 
+```sh
 	.block-hidden {
     	display: none;
 	}
+```
 
+```sh
 	const titles = document.querySelectorAll('.item-text');
 	const titlesElements = [...titles];
 
 	titlesElements.showNext('block-hidden');
+```
