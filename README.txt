@@ -9,6 +9,14 @@
 		title
 		<div class="content block-hidden" data-tab-fitler="title1">content</div>
 	</li>
+	<li class="item title2">
+		title
+		<div class="content block-hidden" data-tab-fitler="title2">content</div>
+	</li>
+	<li class="item title3">
+		title
+		<div class="content block-hidden" data-tab-fitler="title3">content</div>
+	</li>
 
 	.block-hidden {
 	  display: none;
@@ -25,6 +33,16 @@
 		title
 		<img class="img" src="./img/img.png" data-tab-img="title1" alt="img" />
 		<div class="content block-hidden" data-tab-filter="title1">content</div>
+	</li>
+	<li class="item title2">
+		title
+		<img class="img" src="./img/img.png" data-tab-img="title2" alt="img" />
+		<div class="content block-hidden" data-tab-filter="title2">content</div>
+	</li>
+	<li class="item title3">
+		title
+		<img class="img" src="./img/img.png" data-tab-img="title3" alt="img" />
+		<div class="content block-hidden" data-tab-filter="title3">content</div>
 	</li>
 	
 	.block-hidden {
@@ -51,6 +69,14 @@
 		title
 		<div class="content block-hidden" data-tab-filter="title1">content</div>
 	</li>
+	<li class="item title2">
+		title
+		<div class="content block-hidden" data-tab-filter="title2">content</div>
+	</li>
+	<li class="item title3">
+		title
+		<div class="content block-hidden" data-tab-filter="title3">content</div>
+	</li>
 	
 	.block-hidden {
 	  display: none;
@@ -61,3 +87,60 @@
 	const content = document.querySelectorAll('.content');
 	      
 	itemElements.showOne(content, 'block-hidden');
+
+-changeText - работает также как и showEvery только при открытии контента изменяет текст и при его закрытии возвращает начальный.
+Перым параметром принимает контент, который нужно показать/скрыть, вторым параметром принимает в себя начальный текст заголовка,
+третий параметр - это текст, на который нужно изменить начальный, четвертый параметр - это css-класс, который показывает/скрывает
+контент.
+Пример без картинки:
+	<li class="item">
+        <span class="item-text title1"></span>
+        <div class="content block-hidden" data-tab-filter="title1">content</div>
+    </li>
+	<li class="item">
+        <span class="item-text title2"></span>
+        <div class="content block-hidden" data-tab-filter="title2">content</div>
+    </li>
+	<li class="item">
+        <span class="item-text title3"></span>
+        <div class="content block-hidden" data-tab-filter="title3">content</div>
+    </li>
+
+	.block-hidden {
+		display: none;
+	}
+
+	const titles = document.querySelectorAll('.item-text');
+	const titlesElements = [...titles];
+	const content = document.querySelectorAll('.content');
+
+	titles.forEach(title => {
+		title.textContent = 'first text';
+
+		titlesElements.changeText(content, 'first text', 'change text', 'block-hidden');  
+	})
+
+-showNext - работает также как и showEvery только принимает в себя один параметр - это css-класс, который скрывает/показывает контент.
+Но контент должен быть после самого заголовка.
+Пример без картинки:
+	<li class="item">
+        <span class="item-text">title1</span>
+        <div class="content block-hidden">content</div>
+    </li>
+    <li class="item">
+        <span class="item-text">title2</span> 
+        <div class="content block-hidden">content</div>
+    </li>
+    <li class="item">
+        <span class="item-text">title3</span> 
+        <div class="content block-hidden">content</div>
+    </li>
+
+	.block-hidden {
+    	display: none;
+	}
+
+	const titles = document.querySelectorAll('.item-text');
+	const titlesElements = [...titles];
+
+	titlesElements.showNext('block-hidden');

@@ -1,7 +1,11 @@
-// start, first method - show every content
+// show every content
 Array.prototype.showEvery = function (content_body, hidden_class, html_img, html_img_class) {
-    if (html_img === void 0) { html_img = undefined; }
-    if (html_img_class === void 0) { html_img_class = undefined; }
+    if (html_img === void 0) {
+        html_img = undefined;
+    }
+    if (html_img_class === void 0) {
+        html_img_class = undefined;
+    }
     this.forEach(function (title) {
         title.addEventListener('click', function () {
             // content
@@ -27,13 +31,18 @@ Array.prototype.showEvery = function (content_body, hidden_class, html_img, html
         });
     });
 };
-
-// second method - show only one content
+// show only one content
 Array.prototype.showOne = function (content_body, hidden_class, html_img, html_img_class) {
-    if (html_img === void 0) { html_img = undefined; }
-    if (html_img_class === void 0) { html_img_class = undefined; }
+    if (html_img === void 0) {
+        html_img = undefined;
+    }
+    if (html_img_class === void 0) {
+        html_img_class = undefined;
+    }
     function show(elements, img_elements) {
-        if (img_elements === void 0) { img_elements = undefined; }
+        if (img_elements === void 0) {
+            img_elements = undefined;
+        }
         if (!img_elements) {
             elements.forEach(function (item) { return item.classList.add(hidden_class); });
         }
@@ -43,7 +52,9 @@ Array.prototype.showOne = function (content_body, hidden_class, html_img, html_i
         }
     }
     function hide(elements, img_elements, index) {
-        if (img_elements === void 0) { img_elements = undefined; }
+        if (img_elements === void 0) {
+            img_elements = undefined;
+        }
         if (!img_elements) {
             elements[index].classList.remove(hidden_class);
         }
@@ -78,3 +89,30 @@ Array.prototype.showOne = function (content_body, hidden_class, html_img, html_i
         });
     });
 };
+
+// change text titles
+Array.prototype.changeText = function (content_body, first_text, second_text, hidden_class) {
+    this.forEach(function(title) {
+        title.addEventListener('click', function() {
+            content_body.forEach(function(content) {
+                var dataContent = content.dataset.tabFilter;
+
+                if (title.classList.contains(dataContent)) {
+                    content.classList.toggle(hidden_class);
+
+                    if (!content.classList.contains(hidden_class)) { title.textContent = second_text }
+                    else { title.textContent = first_text };
+                }
+            });
+        });
+    });
+};
+
+// show next element
+Array.prototype.showNext = function (hidden_class) {
+    this.forEach(function(title) {
+        title.addEventListener('click', function(event) {
+            event.target.nextElementSibling.classList.toggle(hidden_class);
+        });
+    });
+}
