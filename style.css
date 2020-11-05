@@ -1,0 +1,14 @@
+.block-hidden {
+    display: none;
+}
+
+.item {
+	max-width: 200px;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+}
+
+.img-rotate {
+	transform: rotate(180deg);
+}
