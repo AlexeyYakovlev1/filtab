@@ -117,7 +117,6 @@ Array.prototype.changeText = function (content_body, first_text, second_text, hi
                             else {
                                 title.textContent = first_text;
                             }
-                            ;
                         }
                     });
                 }
