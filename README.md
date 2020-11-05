@@ -5,8 +5,14 @@ Filtab - library for show/hide content on website.
 You will must download zip-folder filtab, find file filtab.js and connected him in your main javascript file.
 
 Example:
-```sh
-import './node_modules/filtab/bundle.min.js';
+```javascript
+	import './node_modules/filtab/bundle.min.js';
+```
+
+or
+
+```html
+	<script src="./node_modules/filtab/bundle.min.js"></script>
 ```
 
 After that, you will have access to methods:
@@ -235,4 +241,52 @@ Example without picture:
 	const titlesElements = [...titles];
 
 	titlesElements.showNext('block-hidden');
+```
+* openWithFunc - method, which open hide content with your add functions or function. First param takes in yourself hide content, second param takes in yourself css class, which will be work with hide content, third param takes in yourself function, which will be call then hide content will be open, fourth param takes in yourself function, which will be call then hide content will be close (hide).
+Example without picture:
+
+```html
+	<li class="item">
+        <div class="item-text title1">title1</div>
+        <div class="content block-hidden" data-tab-filter="title1">
+            content
+        </div>
+    </li>
+    <li class="item">
+        <div class="item-text title2">title2</div>
+        <div class="content block-hidden" data-tab-filter="title2">
+            content
+        </div>
+    </li>
+    <li class="item">
+        <div class="item-text title3">title3</div>
+        <div class="content block-hidden" data-tab-filter="title3">
+            content
+        </div>
+    </li>
+```
+
+```css
+	.block-hidden {
+		display: none;
+	}
+```
+
+```javascript
+	const itemText = document.querySelectorAll('.item-text');
+	const itemTextElements = [...itemText];
+	const content = document.querySelectorAll('.content');
+
+	function openFunc() {
+		console.log('content open');
+	}
+
+	function closeFunc() {
+		console.log('content close');
+	}
+
+	// call two functions
+	itemTextElements.openWithFunc(content, 'block-hidden', closeFunc, func_open);
+	// call one function (but you must transfer undefined)
+	itemTextElements.openWithFunc(content, 'block-hidden', undefined, func_open);
 ```
