@@ -1,7 +1,7 @@
 {
   "name": "filtab",
-  "version": "0.1.1",
-  "description": "library for show/hide content",
+  "version": "0.1.4",
+  "description": "library for show/hide content and filtration",
   "main": "./dist/bundle.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
